@@ -38,17 +38,18 @@ BEGIN_RCPP
 END_RCPP
 }
 // hampel
-Rcpp::NumericVector hampel(Rcpp::NumericVector x, int window_length, double a, double k, bool recentre);
-RcppExport SEXP _filters_hampel(SEXP xSEXP, SEXP window_lengthSEXP, SEXP aSEXP, SEXP kSEXP, SEXP recentreSEXP) {
+Rcpp::NumericVector hampel(Rcpp::NumericVector x, int window_size, double a, double k, bool recentre, String miss);
+RcppExport SEXP _filters_hampel(SEXP xSEXP, SEXP window_sizeSEXP, SEXP aSEXP, SEXP kSEXP, SEXP recentreSEXP, SEXP missSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
-    Rcpp::traits::input_parameter< int >::type window_length(window_lengthSEXP);
+    Rcpp::traits::input_parameter< int >::type window_size(window_sizeSEXP);
     Rcpp::traits::input_parameter< double >::type a(aSEXP);
     Rcpp::traits::input_parameter< double >::type k(kSEXP);
     Rcpp::traits::input_parameter< bool >::type recentre(recentreSEXP);
-    rcpp_result_gen = Rcpp::wrap(hampel(x, window_length, a, k, recentre));
+    Rcpp::traits::input_parameter< String >::type miss(missSEXP);
+    rcpp_result_gen = Rcpp::wrap(hampel(x, window_size, a, k, recentre, miss));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -56,7 +57,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_filters_sma", (DL_FUNC) &_filters_sma, 4},
     {"_filters_ema", (DL_FUNC) &_filters_ema, 3},
-    {"_filters_hampel", (DL_FUNC) &_filters_hampel, 5},
+    {"_filters_hampel", (DL_FUNC) &_filters_hampel, 6},
     {NULL, NULL, 0}
 };
 

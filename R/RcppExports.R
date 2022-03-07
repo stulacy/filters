@@ -9,7 +9,7 @@ ema <- function(x, alpha, miss = "reset") {
     .Call(`_filters_ema`, x, alpha, miss)
 }
 
-hampel <- function(x, window_length, a = 3.0, k = 1.4826, recentre = TRUE) {
-    .Call(`_filters_hampel`, x, window_length, a, k, recentre)
+hampel <- function(x, window_size, a = 3.0, k = 1.4826, recentre = TRUE, miss = "single") {
+    .Call(`_filters_hampel`, x, window_size, a, k, recentre, miss)
 }
 
