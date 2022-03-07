@@ -7,4 +7,6 @@ So far the 3 filters implemented are:
 
   - Simple Moving Average
   - Exponential Moving Average
-  - Hampel
+  - Hampel outlier removal
+
+Install directly from GitHub using `devtools::install_github("stulacy/filters")`.
